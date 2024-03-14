@@ -8,4 +8,23 @@
 
 body {
     font-family: "Ubuntu", serif;
+    background-color: hsl(217, 100%, 97%);
+}
+
+main {
+    background-color: white;
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.section1 {
+    background-color: wheat;
+    padding: 15px;
+}
+
+.section2 {
+    max-width: 600px;
+    background-color: blanchedalmond;
 }
