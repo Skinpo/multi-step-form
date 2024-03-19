@@ -13,18 +13,44 @@ body {
 
 main {
     background-color: white;
-    max-width: 1000px;
+    max-width: 900px;
     margin: auto;
     display: flex;
-    justify-content: space-between;
+    margin-top: 100px;
 }
 
 .section1 {
-    background-color: wheat;
+    /* background-color: wheat; */
     padding: 15px;
 }
 
+.steps {
+    position: absolute;
+    margin-top: -400px;
+}
+
+/* second section */
 .section2 {
     max-width: 600px;
-    background-color: blanchedalmond;
+    /* background-color: blanchedalmond; */
+}
+
+/* plans */
+.select_plan {
+    display: none;
+}
+
+/* add ons */
+.add_ons {
+    display: none;
+}
+
+/* finsishing up */
+.finishing_up {
+    display: none;
+}
+
+/* thank you */
+.thanks {
+    display: none;
 }
