@@ -60,7 +60,6 @@ main {
 
 .btn {
     background-color: transparent;
-    /* border-color: white; */
     border: 1px solid white;
     padding: 5px 15px;
     border-radius: 50%;
@@ -91,15 +90,15 @@ main {
 
 /* second section */
 .section2 {
-    max-width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 1000px;
     margin-top: 50px;
+    flex: 2;
+    padding: 0 120px;
 }
 
 /* personal info */
-.personal_info form {
-    display: block;
+.personal_info {
+    display: none;
 }
 
 .heading {
@@ -132,6 +131,7 @@ main {
     border: 1px solid var(--light-gray);
     font-size: 16px;
     font-weight: 500;
+    cursor: pointer;
 }
 
 ::placeholder {
@@ -157,13 +157,25 @@ main {
 
 /* plans */
 .select_plan {
-    display: none;
+    display: block;
+}
+
+.plans {
+    display: flex;
+    justify-content: space-between;
+}
+
+.plan {
+    max-width: 150px;
+    background-color: var(--light-blue);
+    border: 1px solid var(--cool-gray);
 }
 
 /* add ons */
 .add_ons {
     display: none;
 }
+
 
 /* finsishing up */
 .finishing_up {
