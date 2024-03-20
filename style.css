@@ -3,7 +3,17 @@
 :root {
     /* primary colors */
     --marine-blue: hsl(213, 96%, 18%);
-    --purplish-blue: hsl(243, 100%, 62%);   
+    --purplish-blue: hsl(243, 100%, 62%);
+    --pastel-blue: hsl(228, 100%, 84%);
+    --light-blue: hsl(206, 94%, 87%);
+    --strawberry-red: hsl(354, 84%, 57%);
+
+    /* secondary colors */
+    --cool-gray: hsl(231, 11%, 63%);
+    --light-gray: hsl(229, 24%, 87%);
+    --mongila: hsl(217, 100%, 97%);
+    --alabaster: hsl(231, 100%, 99%);
+    --white: hsl(0, 0%, 100%);
 }
 
 * {
@@ -14,7 +24,7 @@
 
 body {
     font-family: "Ubuntu", serif;
-    background-color: hsl(217, 100%, 97%);
+    background-color: var(--mongila);
 }
 
 main {
@@ -28,6 +38,7 @@ main {
     margin: auto;
     display: flex;
     height: 600px;
+    border-radius: 20px;
 }
 
 .section1 {
@@ -51,15 +62,31 @@ main {
     background-color: transparent;
     /* border-color: white; */
     border: 1px solid white;
-    padding: 5px 13px;
+    padding: 5px 15px;
     border-radius: 50%;
     color: white;
     font-weight: 700;
     font-size: 14px;
+    margin-right: 20px;
 }
 
+/* active state for product buttons */
 .btn:hover {
-    background-color: var(--marine-blue);
+    background-color: var(--light-blue);
+    color: var(--marine-blue);
+}
+
+.description h4 {
+    font-size: 14px;
+    font-weight: lighter;
+    color: var(--cool-gray);
+    padding-bottom: 5px;
+}
+
+.description p {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 
 /* second section */
@@ -67,6 +94,65 @@ main {
     max-width: 50%;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 50px;
+}
+
+/* personal info */
+.personal_info form {
+    display: block;
+}
+
+.heading {
+    font-size: 1.9rem;
+    color: var(--marine-blue);
+    padding-bottom: 15px;
+}
+
+.sub {
+    color: var(--cool-gray);
+    padding-bottom: 40px;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+.field label {
+    font-size: 16px;
+    color: var(--marine-blue);
+    font-weight: 500;
+}
+
+.field input {
+    margin-top: 5px;
+    width: 100%;
+    height: 50px;
+    padding-left: 15px;
+    border-radius: 5px;
+    border: 1px solid var(--light-gray);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+::placeholder {
+    color: var(--cool-gray);
+}
+
+.cta_next_step {
+    margin-top: 90px;
+}
+
+.next_step {
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--white);
+    background-color: var(--marine-blue);
+    border: none;
+    border-radius: 7px;
+    float: right;
+    cursor: pointer;
 }
 
 /* plans */
