@@ -25,6 +25,7 @@
 body {
     font-family: "Ubuntu", serif;
     background-color: var(--mongila);
+    font-size: 16px;
 }
 
 main {
@@ -138,7 +139,7 @@ main {
     color: var(--cool-gray);
 }
 
-.cta_next_step {
+.cta {
     margin-top: 90px;
 }
 
@@ -157,7 +158,7 @@ main {
 
 /* plans */
 .select_plan {
-    display: block;
+    display: none;
 }
 
 .plans {
@@ -237,9 +238,9 @@ main {
     padding-left: 20px;
 }
 
-.active_plan {
+/* .active_plan {
     color: var(--marine-blue);
-}
+} */
 
 .slider {
     position: absolute;
@@ -301,7 +302,51 @@ input:checked + .slider:before {
 
 /* add ons */
 .add_ons {
-    display: none;
+    display: block;
+}
+
+.packages {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    border: 1px solid var(--light-gray);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.packages input {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.package {
+    flex: 2;
+    margin-top: 20px;
+}
+
+.package h4 {
+    font-weight: 700;
+    color: var(--marine-blue);
+}
+
+.package p {
+    font-size: 14px;
+    padding-top: 5px;
+    color: var(--cool-gray);
+}
+
+.price {
+    margin-top: 30px;  
+    padding-right: 20px;  
+    font-weight: 500;
+    color: var(--purplish-blue);
+}
+
+.active_2 {
+    background-color:var(--mongila);
+    border: 2px solid var(--purplish-blue);
 }
 
 
