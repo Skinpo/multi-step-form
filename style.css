@@ -352,7 +352,7 @@ input:checked + .slider:before {
 
 /* finishing up */
 .finishing_up {
-    display: block;
+    display: none;
 }
 
 .finish {
@@ -411,5 +411,22 @@ hr {
 
 /* thank you */
 .thanks {
-    display: none;
+    display: block;
+    text-align: center;
+    margin-top: 150px;
+}
+
+.thanks img {
+    margin-bottom: 30px;
+}
+
+.thanks h3 {
+    font-size: 35px;
+    padding-bottom: 20px;
+    color: var(--marine-blue);
+}
+
+.thanks p {
+    color: var(--cool-gray);
+    line-height: 1.5rem;
 }
