@@ -430,3 +430,8 @@ hr {
     color: var(--cool-gray);
     line-height: 1.5rem;
 }
+
+/* mobile version */
+@media (max-width: 480px) {
+    
+}
