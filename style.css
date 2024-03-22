@@ -302,7 +302,7 @@ input:checked + .slider:before {
 
 /* add ons */
 .add_ons {
-    display: block;
+    display: none;
 }
 
 .packages {
@@ -350,9 +350,63 @@ input:checked + .slider:before {
 }
 
 
-/* finsishing up */
+/* finishing up */
 .finishing_up {
-    display: none;
+    display: block;
+}
+
+.finish {
+    padding: 20px;
+    background-color: var(--alabaster);
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.arcade {
+    padding-bottom: 20px;
+}
+
+.arcade_2 {
+    padding-top: 20px;
+}
+
+.arcade, .arcade_3, .total {
+    display: flex;
+    justify-content: space-between;
+}
+
+.arcade h4, .arcade h5, .arcade_1 a, .arcade_3 h4, .arcade_3 h5, .total h4, .total h5 {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--cool-gray);
+}
+
+.arcade_1 h4{
+    font-weight: 700;
+    color: var(--marine-blue);
+    padding-bottom: 5px;
+}
+
+.arcade h5, .arcade_3 h5, .total h5 {
+    color: var(--marine-blue);
+}
+
+.arcade_1 h5 {
+    font-weight: 700;
+}
+
+.total {
+    padding: 0 20px;
+}
+
+.total h5 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--purplish-blue);
+}
+
+hr {
+    border: 1px solid var(--light-gray);
 }
 
 /* thank you */
