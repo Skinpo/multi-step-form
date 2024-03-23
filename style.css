@@ -46,6 +46,10 @@ main {
     padding: 15px;
 }
 
+.mobile_bg {
+    display: none;
+}
+
 .steps {
     position: absolute;
     top: 60px;
@@ -99,7 +103,7 @@ main {
 
 /* personal info */
 .personal_info {
-    display: none;
+    display: block;
 }
 
 .heading {
@@ -411,7 +415,7 @@ hr {
 
 /* thank you */
 .thanks {
-    display: block;
+    display: none;
     text-align: center;
     margin-top: 150px;
 }
