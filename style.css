@@ -437,5 +437,46 @@ hr {
 
 /* mobile version */
 @media (max-width: 480px) {
-    
+    .main {
+        width: 100%;
+        display: block;
+    }
+
+    .desktop_bg {
+        display: none;
+    }
+
+    .mobile_bg {
+        display: block;
+        width: 480px;
+        position: absolute;
+        z-index: -1;
+        /* top: -10px; */
+    }
+
+    .section1 {
+        position: absolute;
+        width: 100%;
+        padding: 0;
+        top: -100px;
+    }
+
+    .steps {
+        display: flex;
+        color: rgb(158, 114, 57);
+        width: 100%;
+    }
+
+    .step {
+        top: 200px;
+    }
+
+    .description {
+        display: none;
+    }
+
+    .section2 {
+        width: 100%;
+        background-color: aqua;
+    }
 }
