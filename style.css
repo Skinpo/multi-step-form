@@ -66,12 +66,14 @@ main {
 .btn {
     background-color: transparent;
     border: 1px solid white;
-    padding: 5px 15px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     color: white;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 16px;
     margin-right: 20px;
+    cursor: pointer;
 }
 
 /* active state for product buttons */
@@ -437,9 +439,15 @@ hr {
 
 /* mobile version */
 @media (max-width: 480px) {
-    .main {
+    main {
         width: 100%;
         display: block;
+        width: 100%;
+        top: 170px;
+        bottom: 0;
+        height: 0;
+        margin: 0;
+        padding: 0 20px;
     }
 
     .desktop_bg {
@@ -461,14 +469,27 @@ hr {
         top: -100px;
     }
 
+    .image {
+        display: none;
+    }
+
     .steps {
         display: flex;
         color: rgb(158, 114, 57);
-        width: 100%;
+        width: 250px;
+        position: relative;
+        margin: auto;
+        left: 0;
+        top: -30px;
     }
 
     .step {
-        top: 200px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn {
+        margin-right: 0;
     }
 
     .description {
@@ -477,6 +498,37 @@ hr {
 
     .section2 {
         width: 100%;
-        background-color: aqua;
+        padding: 0;
+    }
+
+    form {
+        position: relative;
+        margin-top: -95px;
+        background-color: var(--white);
+        padding: 40px 30px 30px 30px;
+        border-radius: 10px;
+        width: 100%;
+    }
+
+    .cta {
+        background-color: white;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        padding: 30px 20px;
+    }
+
+    .heading {
+        font-size: 1.8rem;
+        letter-spacing: -1px;
+    }
+
+    .sub {
+        line-height: 1.5rem;
+    }
+
+    label {
+        font-size: 14px;
+        letter-spacing: -1px;
     }
 }
