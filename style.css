@@ -105,7 +105,7 @@ main {
 
 /* personal info */
 .personal_info {
-    display: block;
+    display: none;
 }
 
 .heading {
@@ -164,7 +164,7 @@ main {
 
 /* plans */
 .select_plan {
-    display: none;
+    display: block;
 }
 
 .plans {
@@ -177,11 +177,12 @@ main {
     border: 1px solid var(--light-gray);
     border-radius: 10px;
     padding: 15px;
+    cursor: pointer;
 }
 
 .active {
     background-color:var(--mongila);
-    border: 1px solid var(--purplish-blue);
+    border: 2px solid var(--purplish-blue);
 }
 
 .plan img {
@@ -244,9 +245,9 @@ main {
     padding-left: 20px;
 }
 
-/* .active_plan {
+.active_plan {
     color: var(--marine-blue);
-} */
+}
 
 .slider {
     position: absolute;
@@ -501,7 +502,7 @@ hr {
         padding: 0;
     }
 
-    form {
+    form, .plan_info {
         position: relative;
         margin-top: -95px;
         background-color: var(--white);
@@ -531,4 +532,47 @@ hr {
         font-size: 14px;
         letter-spacing: -1px;
     }
+
+    /* plans */
+    .plans {
+        display: block;
+    }
+
+    .plan {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .cta_2 {
+        background-color: white;
+        position: absolute;
+        width: 100%;
+        bottom: -700px;
+        left: 0;
+        padding: 30px 20px;
+    }
+
+    .plan {
+        display: flex;
+    }
+
+    .desc {
+        padding-left: 15px;
+    }
+
+    .plan h3 {
+        padding-top: 0;
+    }
+    
+    .choice {
+        display: flex;
+        margin-top: 30px;
+        width: 100%;
+        background-color: var(--mongila);
+        display: flex;
+        justify-content: center;
+        padding: 15px 0;
+        border-radius: 10px;
+    }
+
 }
