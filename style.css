@@ -164,7 +164,7 @@ main {
 
 /* plans */
 .select_plan {
-    display: block;
+    display: none;
 }
 
 .plans {
@@ -359,7 +359,7 @@ input:checked + .slider:before {
 
 /* finishing up */
 .finishing_up {
-    display: none;
+    display: block;
 }
 
 .finish {
@@ -465,6 +465,7 @@ hr {
 
     .section1 {
         position: absolute;
+        left: 0;
         width: 100%;
         padding: 0;
         top: -100px;
@@ -502,13 +503,14 @@ hr {
         padding: 0;
     }
 
-    form, .plan_info {
+    .content {
         position: relative;
         margin-top: -95px;
         background-color: var(--white);
         padding: 40px 30px 30px 30px;
         border-radius: 10px;
         width: 100%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
     .cta {
@@ -575,4 +577,21 @@ hr {
         border-radius: 10px;
     }
 
+    .add_ons {
+        width: 100%;
+    }
+
+    /* finishing up */
+    .arcade h4, .arcade h5, .arcade_1 a, .arcade_3 h4, .arcade_3 h5, .total h4 {
+        font-weight: 400;
+    }
+
+    .total h5 {
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .arcade_1 h5, .arcade_1 h4 {
+        font-weight: 700;
+    }
 }
