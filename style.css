@@ -295,9 +295,9 @@ input:checked + .slider:before {
 }
 
 .cta_2 {
-    position: absolute;
-    bottom: 50px;
-    min-width: 460px;
+    position: relative;
+    /* bottom: 30px; */
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
@@ -309,7 +309,7 @@ input:checked + .slider:before {
 
 /* add ons */
 .add_ons {
-    display: none;
+    display: block;
 }
 
 .packages {
@@ -359,7 +359,7 @@ input:checked + .slider:before {
 
 /* finishing up */
 .finishing_up {
-    display: block;
+    display: none;
 }
 
 .finish {
@@ -438,6 +438,33 @@ hr {
     line-height: 1.5rem;
 }
 
+
+@media (max-width: 901px) {
+    .section2 {
+        max-width: 100%;
+        margin-top: 50px;
+        flex: 2;
+        padding: 0 80px;
+    }
+
+    .heading, .sub {
+        padding: 0 10px 15px 10px;
+    }
+
+    /* .cta_2 {
+        padding-right: 15px;
+        
+    } */
+}
+
+
+@media (max-width: 786px) {
+    .section2 {
+        padding: 0 0px;
+    }
+}
+
+
 /* mobile version */
 @media (max-width: 480px) {
     main {
@@ -457,7 +484,7 @@ hr {
 
     .mobile_bg {
         display: block;
-        width: 480px;
+        width: 100%;
         position: absolute;
         z-index: -1;
         /* top: -10px; */
@@ -503,7 +530,7 @@ hr {
         padding: 0;
     }
 
-    .content {
+    .content, .thanks {
         position: relative;
         margin-top: -95px;
         background-color: var(--white);
@@ -546,12 +573,24 @@ hr {
     }
 
     .cta_2 {
-        background-color: white;
+        background-color: transparent;
         position: absolute;
         width: 100%;
-        bottom: -700px;
+        bottom: -300px;
+        /* z-index: 1000; */
         left: 0;
+        right: 0;
         padding: 30px 20px;
+    }
+
+    .blank {
+        background-color: var(--white);
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 108px;
+        bottom: -670px;
+        z-index: -1;
     }
 
     .plan {
@@ -593,5 +632,9 @@ hr {
 
     .arcade_1 h5, .arcade_1 h4 {
         font-weight: 700;
+    }
+
+    .thanks {
+        padding: 80px 30px;
     }
 }
