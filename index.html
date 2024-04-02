@@ -7,7 +7,7 @@
   <script src="script.js" defer></script>
   <title>Multi-Step-Form</title>
 </head>
-<body>
+<body onload="setUpInfo()";>
 
   <img class="mobile_bg" src="../images/bg-sidebar-mobile.svg" alt="">
   
@@ -19,37 +19,37 @@
 
       <div class="steps">
 
-        <a href="#" class="step">
-          <button class="btn">1</button>
+        <div class="step">
+          <button class="btn btn_1">1</button>
           <div class="description">
             <h4>STEP 1</h4>
             <P>YOUR INFO</P>
           </div>
-        </a>
+        </div>
 
-        <a href="#" class="step">
-          <button class="btn">2</button>
+        <div class="step">
+          <button class="btn btn_2">2</button>
           <div class="description">
             <h4>STEP 2</h4>
             <P>SELECT PLAN</P>
           </div>
-        </a>
+        </div>
 
-        <a href="#" class="step">
-          <button class="btn">3</button>
+        <div class="step">
+          <button class="btn btn_3">3</button>
           <div class="description">
-            <h4>STEP 3</h4>
-            <P>ADD-ONS</P>
+            <h4>STEP 2</h4>
+            <P>SELECT PLAN</P>
           </div>
-        </a>
+        </div>
 
-        <a href="#" class="step">
-          <button class="btn">4</button>
+        <div class="step">
+          <button class="btn btn_4">4</button>
           <div class="description">
             <h4>STEP 4</h4>
             <P>SUMMARY</P>
           </div>
-        </a>
+        </div>
 
       </div>
     </section>
@@ -64,24 +64,33 @@
           <p class="sub">Please provide your name, email address and phone number</p>
   
           <div class="field">
-            <label for="name">Name</label> <br>
+            <div class="label">
+              <label for="name">Name</label>
+              <label for="message" class="err_name">This field is required</label>
+            </div>
             <input type="text" placeholder="e.g Stephen King">
           </div>
           
           <div class="field">
-            <label for="email">Email Address</label> <br>
-            <input type="text" placeholder="e.g stephenking@lorem.com">
+            <div class="label">
+              <label for="email">Email Address</label>
+              <label for="message" class="err_email"></label>
+            </div>
+            <input type="email" name="email" id="email" placeholder="e.g stephenking@lorem.com">
           </div>
           
           <div class="field">
-            <label for="number">Phone Number</label> <br>
-            <input type="text" placeholder="e.g +234 8031 111 222">
+            <div class="label">
+              <label for="number">Phone Number</label>
+              <label for="message" class="err_num"></label>
+            </div>
+            <input type="number" placeholder="e.g +234 8031 111 222">
           </div>
   
         </form>
   
         <div class="cta">
-          <button class="next_step">Next Step</button>
+          <button class="next_step next_1">Next Step</button>
         </div>
   
       </div>
