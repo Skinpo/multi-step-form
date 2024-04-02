@@ -30,7 +30,7 @@ body {
 
 main {
     background-color: white;
-    max-width: 1000px;
+    max-width: 940px;
     position: absolute;
     right: 0;
     left: 0;
@@ -95,12 +95,20 @@ main {
     letter-spacing: 1px;
 }
 
+/* .block {
+    background-color: red;
+    position: absolute;
+    width: 100%;
+    height: 90px;
+    bottom: 0;
+} */
+
 /* second section */
 .section2 {
-    max-width: 1000px;
+    max-width: 636px;
     margin-top: 50px;
     flex: 2;
-    padding: 0 120px;
+    padding: 0 100px;
 }
 
 /* personal info */
@@ -173,7 +181,7 @@ main {
 }
 
 .plan {
-    width: 145px;
+    width: 135px;
     border: 1px solid var(--light-gray);
     border-radius: 10px;
     padding: 15px;
@@ -295,9 +303,9 @@ input:checked + .slider:before {
 }
 
 .cta_2 {
-    position: relative;
-    /* bottom: 30px; */
-    width: 100%;
+    position: absolute;
+    bottom: 30px;
+    width: 440px;
     display: flex;
     justify-content: space-between;
 }
@@ -309,7 +317,7 @@ input:checked + .slider:before {
 
 /* add ons */
 .add_ons {
-    display: block;
+    display: none;
 }
 
 .packages {
@@ -418,7 +426,7 @@ hr {
 
 /* thank you */
 .thanks {
-    display: none;
+    display: block;
     text-align: center;
     margin-top: 150px;
 }
@@ -439,34 +447,33 @@ hr {
 }
 
 
-@media (max-width: 901px) {
+@media (max-width: 800px) {
     .section2 {
         max-width: 100%;
         margin-top: 50px;
         flex: 2;
-        padding: 0 80px;
+        padding: 0 20px;
     }
 
     .heading, .sub {
         padding: 0 10px 15px 10px;
     }
-
-    /* .cta_2 {
-        padding-right: 15px;
-        
-    } */
 }
 
 
-@media (max-width: 786px) {
+@media (max-width: 650px) {
     .section2 {
-        padding: 0 0px;
+        padding: 0 10px;
+    }
+
+    .cta_2 {
+        width: 326px;
     }
 }
 
 
 /* mobile version */
-@media (max-width: 480px) {
+@media (max-width: 430px) {
     main {
         width: 100%;
         display: block;
@@ -573,24 +580,13 @@ hr {
     }
 
     .cta_2 {
-        background-color: transparent;
+        background-color: var(--white);
         position: absolute;
         width: 100%;
-        bottom: -300px;
-        /* z-index: 1000; */
+        bottom: -750px;
         left: 0;
         right: 0;
         padding: 30px 20px;
-    }
-
-    .blank {
-        background-color: var(--white);
-        position: absolute;
-        left: 0;
-        width: 100%;
-        height: 108px;
-        bottom: -670px;
-        z-index: -1;
     }
 
     .plan {
@@ -616,8 +612,37 @@ hr {
         border-radius: 10px;
     }
 
+    /* add_ons */
+
     .add_ons {
         width: 100%;
+    }
+
+    .sub {
+        padding-bottom: 30px;
+    }
+
+    .packages input {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .package {
+        margin-top: 20px;
+    }
+
+    .package h4 {
+        font-size: 14px;
+    }
+
+    .package p {
+        font-size: 12px;
+        padding-top: 0;
+    }
+
+    .price {
+        padding-right: 15px;
+        font-size: 12px;
     }
 
     /* finishing up */
