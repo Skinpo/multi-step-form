@@ -150,6 +150,10 @@ main {
     cursor: pointer;
 }
 
+input:focus {
+    outline: 1px solid var(--purplish-blue);
+}
+
 ::placeholder {
     color: var(--cool-gray);
     font-weight: 500;

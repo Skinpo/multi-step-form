@@ -5,10 +5,12 @@ const add_ons = document.querySelector(".add_ons");
 const finish =document.querySelector(".finishing_up");
 const thanks = document.querySelector(".thanks");
 const next_1 = document.querySelector(".next_1");
-
-// Saved items
- // const phoneNumberRegex = /^\+\d{3} \d{4} \d{3} \d{3}$/;
-
+const email = document.querySelector(".email");
+const err_mail = document.querySelector(".err_email");
+const num = document.querySelector(".num");
+const err_num = document.querySelector(".err_num");
+const fullName = document.querySelector(".name");
+const err_name = document.querySelector(".err_name");
 
 
 // function execution when page loads
@@ -16,47 +18,84 @@ function setUpInfo() {
     btns[0].classList.add("btn_active");  
 }
 
-// infoComplete = () => {
-//     function validateEmail() {
-//         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//         const email = document.getElementById("email");
-//         const err_email = document.querySelector(".err_email");
+// functions for when user is filling input fields
+fullName.addEventListener("keyup", () => {
+    fullName.style.border = "1px solid hsl(243, 100%, 62%)";
+    err_name.textContent = "";
+})
 
-//         if (emailRegex.test(email)) {
-//             err_email.innerHTML = "";
-//         } else {
-//             err_email.innerHTML = "wrong email format";
-//         }
-//     }
+email.addEventListener("keyup", () => {
+    email.style.border = "1px solid hsl(243, 100%, 62%)";
+    err_mail.textContent = "";
+})
 
-//     validateEmail()
-// }
+num.addEventListener("keyup", () => {
+    num.style.border = "1px solid hsl(243, 100%, 62%)";
+    err_num.textContent = "";  
+})
 
+// checking for input field validation
+nameIsValid = () => {
+    if (fullName.value === "" || fullName.value === null) {
+        fullName.style.border = "2px solid hsl(354, 84%, 57%)";
+        err_name.style.visibility = "visible";
+        err_name.textContent = "This field is required";
+    }else if (fullName.value.match(/^[A-Za-z\s]*$/)) {
+        fullName.style.border = "2px solid hsl(229, 24%, 87%)";
+    }else {
+        err_name.style.visibility = "visible";
+        fullName.style.border = "2px solid hsl(354, 84%, 57%)"
+        err_name.textContent = "Invalid name"; 
+    }
+}
+
+emailIsValid = () => {
+    if (email.value === "" || email.value === null) {
+        email.style.border = "2px solid hsl(354, 84%, 57%)";
+        err_mail.style.visibility = "visible";
+        err_mail.textContent = "This field is required";
+    }else if (email.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+        email.style.border = "2px solid hsl(229, 24%, 87%)";
+    }else {
+        err_mail.style.visibility = "visible";
+        email.style.border = "2px solid hsl(354, 84%, 57%)"
+        err_mail.textContent = "Invalid email"; 
+    }
+}
+
+numIsValid = () => {
+    if (num.value === "" || num.value === null) {
+        num.style.border = "2px solid hsl(354, 84%, 57%)";
+        err_num.style.visibility = "visible";
+        err_num.textContent = "This field is required";
+    }else if (num.value.match(/^[0-9]{11}$/)) {
+        num.style.border = "2px solid hsl(229, 24%, 87%)";
+    }else {
+        err_num.style.visibility = "visible";
+        num.style.border = "2px solid hsl(354, 84%, 57%)"
+        err_num.textContent = "Invalid number"; 
+    }
+}
+
+allInputIsValid = () => {
+    if (fullName.value.match(/^[A-Za-z\s]*$/) &&
+        email.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) &&
+        num.value.match(/^[0-9]{11}$/)) {
+        // return true
+        btns[0].classList.remove("btn_active");
+        btns[1].classList.add("btn_active");
+        info.style.display = "none";
+        plans.style.display = "block";
+    }
+}
+
+
+// function that takes user from info to plan
 next_1.addEventListener("click", (e) => {
     e.preventDefault();
-    // const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,}$/;
-    const email = document.getElementById("email");
-    const err_email = document.querySelector(".err_email");
-    // const err_msgs = document.querySelectorAll(".err_msg");
-
-
-    //     if (emailRegex.test(email)) {
-    //         // err_email.innerHTML = "";
-    //         alert("right")
-    //     } else {
-    //         // err_email.innerHTML = "wrong email format";
-    //         alert("wrong")
-    //     }
-    // err_email.style.visibility = "visible";
-
-    function isValidEmail(email) {
-        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;
-        return emailRegex.test(email);
-    }
-
-    console.log(isValidEmail("user@example.com"));
-
-
-    
-
+    nameIsValid();
+    emailIsValid();
+    numIsValid();
+    allInputIsValid();
 })
+
