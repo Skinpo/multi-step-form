@@ -37,42 +37,42 @@ num.addEventListener("keyup", () => {
 // checking for input field validation
 nameIsValid = () => {
     if (fullName.value === "" || fullName.value === null) {
-        fullName.style.border = "2px solid hsl(354, 84%, 57%)";
+        fullName.style.border = "1px solid hsl(354, 84%, 57%)";
         err_name.style.visibility = "visible";
         err_name.textContent = "This field is required";
     }else if (fullName.value.match(/^[A-Za-z\s]*$/)) {
         fullName.style.border = "2px solid hsl(229, 24%, 87%)";
     }else {
         err_name.style.visibility = "visible";
-        fullName.style.border = "2px solid hsl(354, 84%, 57%)"
+        fullName.style.border = "1px solid hsl(354, 84%, 57%)"
         err_name.textContent = "Invalid name"; 
     }
 }
 
 emailIsValid = () => {
     if (email.value === "" || email.value === null) {
-        email.style.border = "2px solid hsl(354, 84%, 57%)";
+        email.style.border = "1px solid hsl(354, 84%, 57%)";
         err_mail.style.visibility = "visible";
         err_mail.textContent = "This field is required";
     }else if (email.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
         email.style.border = "2px solid hsl(229, 24%, 87%)";
     }else {
         err_mail.style.visibility = "visible";
-        email.style.border = "2px solid hsl(354, 84%, 57%)"
+        email.style.border = "1px solid hsl(354, 84%, 57%)"
         err_mail.textContent = "Invalid email"; 
     }
 }
 
 numIsValid = () => {
     if (num.value === "" || num.value === null) {
-        num.style.border = "2px solid hsl(354, 84%, 57%)";
+        num.style.border = "1px solid hsl(354, 84%, 57%)";
         err_num.style.visibility = "visible";
         err_num.textContent = "This field is required";
     }else if (num.value.match(/^[0-9]{11}$/)) {
         num.style.border = "2px solid hsl(229, 24%, 87%)";
     }else {
         err_num.style.visibility = "visible";
-        num.style.border = "2px solid hsl(354, 84%, 57%)"
+        num.style.border = "1px solid hsl(354, 84%, 57%)"
         err_num.textContent = "Invalid number"; 
     }
 }
