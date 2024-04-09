@@ -272,6 +272,7 @@ input:focus {
     background-color: var(--marine-blue);
     -webkit-transition: .4s;
     transition: .4s;
+    cursor: pointer;
 }
 
 .slider:before {

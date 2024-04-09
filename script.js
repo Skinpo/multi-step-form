@@ -1,6 +1,7 @@
 const btns = document.querySelectorAll(".btn");
 const info = document.querySelector(".personal_info");
 const plans = document.querySelector(".select_plan");
+const selectPlans = document.querySelectorAll(".plan");
 const add_ons = document.querySelector(".add_ons");
 const finish =document.querySelector(".finishing_up");
 const thanks = document.querySelector(".thanks");
@@ -34,7 +35,7 @@ num.addEventListener("keyup", () => {
     err_num.textContent = "";  
 })
 
-// checking for input field validation
+// input field validation
 nameIsValid = () => {
     if (fullName.value === "" || fullName.value === null) {
         fullName.style.border = "1px solid hsl(354, 84%, 57%)";
@@ -81,11 +82,11 @@ allInputIsValid = () => {
     if (fullName.value.match(/^[A-Za-z\s]*$/) &&
         email.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) &&
         num.value.match(/^[0-9]{11}$/)) {
-        // return true
         btns[0].classList.remove("btn_active");
         btns[1].classList.add("btn_active");
         info.style.display = "none";
         plans.style.display = "block";
+        selectPlans[0].classList.add("active");
     }
 }
 
@@ -98,4 +99,25 @@ next_1.addEventListener("click", (e) => {
     numIsValid();
     allInputIsValid();
 })
+
+// plans
+btns[1].addEventListener("click", () => {
+    btns[0].classList.remove("btn_active");
+    btns[1].classList.add("btn_active");
+    info.style.display = "none";
+    plans.style.display = "block";
+    selectPlans[0].classList.add("active");
+})
+
+for (let i = 0; i < selectPlans.length; i++) {
+    selectPlans[i].addEventListener("click", () => {
+        console.log("clicked");
+    })
+}
+
+
+
+
+
+
 
