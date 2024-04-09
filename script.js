@@ -1,7 +1,6 @@
 const btns = document.querySelectorAll(".btn");
 const info = document.querySelector(".personal_info");
 const plans = document.querySelector(".select_plan");
-const selectPlans = document.querySelectorAll(".plan");
 const add_ons = document.querySelector(".add_ons");
 const finish =document.querySelector(".finishing_up");
 const thanks = document.querySelector(".thanks");
@@ -101,6 +100,8 @@ next_1.addEventListener("click", (e) => {
 })
 
 // plans
+const selectPlans = document.querySelectorAll(".plan");
+
 btns[1].addEventListener("click", () => {
     btns[0].classList.remove("btn_active");
     btns[1].classList.add("btn_active");
@@ -111,9 +112,23 @@ btns[1].addEventListener("click", () => {
 
 for (let i = 0; i < selectPlans.length; i++) {
     selectPlans[i].addEventListener("click", () => {
-        console.log("clicked");
+        if (selectPlans[i] === selectPlans[0]) {
+            selectPlans[0].classList.add("active");
+            selectPlans[1].classList.remove("active");
+            selectPlans[2].classList.remove("active");
+        }else if(selectPlans[i] === selectPlans[1]) {
+            selectPlans[0].classList.remove("active");
+            selectPlans[1].classList.add("active");
+            selectPlans[2].classList.remove("active");
+        }else if(selectPlans[i] === selectPlans[2]) {
+            selectPlans[0].classList.remove("active");
+            selectPlans[1].classList.remove("active");
+            selectPlans[2].classList.add("active");
+        }
     })
 }
+
+
 
 
 
