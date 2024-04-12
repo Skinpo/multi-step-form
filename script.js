@@ -13,6 +13,7 @@ const num = document.querySelector(".num");
 const err_num = document.querySelector(".err_num");
 const fullName = document.querySelector(".name");
 const err_name = document.querySelector(".err_name");
+const checkBox = document.querySelectorAll(".checkbox");
 
 
 // function execution when page loads
@@ -20,7 +21,7 @@ function setUpInfo() {
     btns[0].classList.add("btn_active");  
 }
 
-console.log(back);
+// console.log(checkBox[2].nextElementSibling.nextElementSibling.innerHTML);
 
 // step buttons
 stepOne = () => {
