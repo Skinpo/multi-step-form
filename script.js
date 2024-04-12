@@ -1,10 +1,12 @@
 const btns = document.querySelectorAll(".btn");
 const info = document.querySelector(".personal_info");
 const plans = document.querySelector(".select_plan");
-const add_ons = document.querySelector(".add_ons");
+const selectPlans = document.querySelectorAll(".plan");
 const finish =document.querySelector(".finishing_up");
+const add_ons = document.querySelector(".add_ons");
 const thanks = document.querySelector(".thanks");
-const next_1 = document.querySelector(".next_1");
+const next = document.querySelectorAll(".next");
+const back = document.querySelectorAll(".back");
 const email = document.querySelector(".email");
 const err_mail = document.querySelector(".err_email");
 const num = document.querySelector(".num");
@@ -17,6 +19,70 @@ const err_name = document.querySelector(".err_name");
 function setUpInfo() {
     btns[0].classList.add("btn_active");  
 }
+
+console.log(back);
+
+// step buttons
+stepOne = () => {
+    btns[0].classList.add("btn_active");
+    btns[1].classList.remove("btn_active");
+    btns[2].classList.remove("btn_active");
+    btns[3].classList.remove("btn_active");
+    info.style.display = "block";
+    add_ons.style.display = "none";
+    plans.style.display = "none";
+    finish.style.display = "none";
+}
+
+stepTwo = () => {
+    btns[0].classList.remove("btn_active");
+    btns[1].classList.add("btn_active");
+    btns[2].classList.remove("btn_active");
+    btns[3].classList.remove("btn_active");
+    info.style.display = "none";
+    add_ons.style.display = "none";
+    plans.style.display = "block";
+    finish.style.display = "none";
+    selectPlans[0].classList.add("active");
+}
+
+stepThree = () => {
+    btns[0].classList.remove("btn_active");
+    btns[1].classList.remove("btn_active");
+    btns[3].classList.remove("btn_active");
+    btns[2].classList.add("btn_active");
+    info.style.display = "none";
+    add_ons.style.display = "block";
+    plans.style.display = "none";
+    finish.style.display = "none";
+}
+
+stepFour = () => {
+    btns[0].classList.remove("btn_active");
+    btns[1].classList.remove("btn_active");
+    btns[2].classList.remove("btn_active");
+    btns[3].classList.add("btn_active");
+    info.style.display = "none";
+    add_ons.style.display = "none";
+    plans.style.display = "none";
+    finish.style.display = "block";
+}
+
+btns[0].addEventListener("click", () => {
+    stepOne();
+})
+
+btns[1].addEventListener("click", () => {
+    stepTwo();
+})
+
+btns[2].addEventListener("click", () => {
+    stepThree();
+})
+
+btns[3].addEventListener("click", () => {
+    stepFour();
+})
 
 // functions for when user is filling input fields
 fullName.addEventListener("keyup", () => {
@@ -91,7 +157,7 @@ allInputIsValid = () => {
 
 
 // function that takes user from info to plan
-next_1.addEventListener("click", (e) => {
+next[0].addEventListener("click", (e) => {
     e.preventDefault();
     nameIsValid();
     emailIsValid();
@@ -100,16 +166,7 @@ next_1.addEventListener("click", (e) => {
 })
 
 // plans
-const selectPlans = document.querySelectorAll(".plan");
-
-btns[1].addEventListener("click", () => {
-    btns[0].classList.remove("btn_active");
-    btns[1].classList.add("btn_active");
-    info.style.display = "none";
-    plans.style.display = "block";
-    selectPlans[0].classList.add("active");
-})
-
+// choosing plans
 for (let i = 0; i < selectPlans.length; i++) {
     selectPlans[i].addEventListener("click", () => {
         if (selectPlans[i] === selectPlans[0]) {
@@ -128,11 +185,30 @@ for (let i = 0; i < selectPlans.length; i++) {
     })
 }
 
+// plans next step and go back buttons functionality
+
+back[0].addEventListener("click", () => {
+    stepOne();
+})
+
+next[1].addEventListener("click", () => {
+    stepThree();
+})
 
 
+// add-ons
 
+back[1].addEventListener("click", () => {
+    stepTwo();
+})
 
+next[2].addEventListener("click", () => {
+    stepFour();
+})
 
+// Finishing up
 
-
+back[2].addEventListener("click", () => {
+    stepThree();
+})
 
