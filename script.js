@@ -213,3 +213,15 @@ back[2].addEventListener("click", () => {
     stepThree();
 })
 
+const slider = document.querySelector(".slider");
+console.log(slider);
+
+slider.addEventListener("click", () => {
+    slider.classList.toggle("lass");
+
+    if (slider.classList.contains("lass")) {
+        console.log("yes");
+    } else {
+        console.log("no");
+    }
+})
