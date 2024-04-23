@@ -14,6 +14,8 @@ const err_num = document.querySelector(".err_num");
 const fullName = document.querySelector(".name");
 const err_name = document.querySelector(".err_name");
 const checkBox = document.querySelectorAll(".checkbox");
+const month = document.querySelector(".mo");
+const year = document.querySelector(".ye");
 
 
 // function execution when page loads
@@ -153,6 +155,7 @@ allInputIsValid = () => {
         info.style.display = "none";
         plans.style.display = "block";
         selectPlans[0].classList.add("active");
+        month.style.color = "hsl(213, 96%, 18%)";
     }
 }
 
@@ -196,6 +199,58 @@ next[1].addEventListener("click", () => {
     stepThree();
 })
 
+// toggle button functionality
+const slider = document.querySelector(".slider");
+const yearlyValues = document.querySelectorAll(".year");
+const monthlyValues = document.querySelectorAll(".month");
+const yearly = document.getElementById("yearly");
+const months = document.getElementById("month");
+console.log(monthlyValues);
+
+let currency = "$";
+let monthlyTimeFrame = "/mo";
+let yearlyTimeFrame = "/yr";
+let firstmonthlyAmount = 9;
+let secondmonthlyAmount = 12;
+let thirdmonthlyAmount = 15;
+let firstyearlyAmount = 90;
+let secondyearlyAmount = 120;
+let thirdyearlyAmount = 150;
+
+yearlyValue = () => {
+    yearly.style.display = "block";
+    months.style.display = "none";
+    yearlyValues[0].innerHTML = currency + firstyearlyAmount + yearlyTimeFrame;
+    yearlyValues[1].innerHTML = currency + secondyearlyAmount + yearlyTimeFrame;
+    yearlyValues[2].innerHTML = currency + thirdyearlyAmount + yearlyTimeFrame;
+    
+};
+
+monthlyValue = () => {
+    months.style.display = "block";
+    yearly.style.display = "none";
+    monthlyValues[0].innerHTML = currency + firstmonthlyAmount + monthlyTimeFrame;
+    monthlyValues[1].innerHTML = currency + secondmonthlyAmount + monthlyTimeFrame;
+    monthlyValues[2].innerHTML = currency + thirdmonthlyAmount + monthlyTimeFrame;
+};
+
+slider.addEventListener("click", () => {
+    slider.classList.toggle("lass");
+
+    if (slider.classList.contains("lass")) {
+        console.log("yes");
+        year.style.color = "hsl(213, 96%, 18%)";
+        month.style.color = "hsl(231, 11%, 63%)";
+        yearlyValue();
+        // monthlyValue();
+    } else {
+        console.log("no");
+        month.style.color = "hsl(213, 96%, 18%)";
+        year.style.color = "hsl(231, 11%, 63%)";
+        // monthlyValue();
+    }
+})
+
 
 // add-ons
 
@@ -213,15 +268,3 @@ back[2].addEventListener("click", () => {
     stepThree();
 })
 
-const slider = document.querySelector(".slider");
-console.log(slider);
-
-slider.addEventListener("click", () => {
-    slider.classList.toggle("lass");
-
-    if (slider.classList.contains("lass")) {
-        console.log("yes");
-    } else {
-        console.log("no");
-    }
-})

@@ -223,6 +223,14 @@ input:focus {
     color: var(--marine-blue);
 }
 
+#month {
+    display: block;
+}
+
+#yearly {
+    display: none;
+}
+
 .choice {
     margin-top: 30px;
     width: 100%;
@@ -260,9 +268,9 @@ input:focus {
     padding-left: 20px;
 }
 
-.active_plan {
+/* .active_plan {
     color: var(--marine-blue);
-}
+} */
 
 .slider {
     position: absolute;
