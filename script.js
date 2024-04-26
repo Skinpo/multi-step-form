@@ -26,9 +26,7 @@ function setUpInfo() {
     btns[0].classList.add("btn_active");  
 }
 
-// console.log(checkBox[2].nextElementSibling.nextElementSibling.innerHTML);
-
-// step buttons
+// step buttons functionalities
 stepOne = () => {
     btns[0].classList.add("btn_active");
     btns[1].classList.remove("btn_active");
@@ -49,7 +47,6 @@ stepTwo = () => {
     add_ons.style.display = "none";
     plans.style.display = "block";
     finish.style.display = "none";
-    // selectPlans[0].classList.add("active");
 }
 
 stepThree = () => {
@@ -162,6 +159,8 @@ allInputIsValid = () => {
         plans.style.display = "block";
         selectPlans[0].classList.add("active");
         month.style.color = "hsl(213, 96%, 18%)";
+        stepTwo();
+        reset();
     }
 }
 
@@ -173,10 +172,10 @@ next[0].addEventListener("click", (e) => {
     emailIsValid();
     numIsValid();
     allInputIsValid();
-    stepTwo();
-    selectPlans[0].classList.add("active");
-    arcadeMonth();
+    
 })
+
+// ***************************************************
 
 // plans
 // choosing plans
@@ -222,13 +221,6 @@ proMonthlyPrice.innerHTML = `
     <h4 class="month">$15/mo</h4>
 `
 
-// yearly price plans
-// const freeTime = document.createElement("p");
-// freeTime.setAttribute("class", "p");
-// freeTime.innerHTML = `
-//     <p class="year">2 months free</p>
-// `
-
 const arcadeYearlyPrice = document.createElement("div");
 arcadeYearlyPrice.setAttribute("class", "year");
 arcadeYearlyPrice.innerHTML = `
@@ -256,10 +248,24 @@ proYearlyPrice.innerHTML = `
     </div>
 `
 
-// arcadeYearlyPrice.appendChild(freeTime);
+/*
+// converting values in plans to usable data type (number)
+console.log(proYearlyPrice.textContent.trim());
+let kiss = proYearlyPrice.textContent.trim();
+kissed = Array.from(kiss);
+const [ one, two, three, four, five, six, ...otherData ] = kissed;
+console.log(kissed);
+console.log(two, three, four);
+let figure = two + three + four;
+let nums = Number(figure);
+console.log(nums);
+
+// still to do is taking care of default value of the slider
+*/ 
+
+
 
 arcadeYear = () => {
-        console.log("yes");
         year.style.color = marineBlue;
         month.style.color = coolGray;
         description[0].appendChild(arcadeYearlyPrice);
@@ -271,7 +277,6 @@ arcadeYear = () => {
 }
 
 arcadeMonth = () => {
-        console.log("no");
         month.style.color = marineBlue;
         year.style.color = coolGray;
         description[0].appendChild(arcadeMonthlyPrice);
@@ -279,12 +284,20 @@ arcadeMonth = () => {
         description[2].appendChild(proMonthlyPrice);
 }
 
+const reset = () => {
+    selectPlans[0].classList.add("active");
+    selectPlans[1].classList.remove("active");
+    selectPlans[2].classList.remove("active");
+    arcadeMonth();
+    description[0].removeChild(arcadeYearlyPrice);
+    description[1].removeChild(advancedYearlyPrice);
+    description[2].removeChild(proYearlyPrice);
+}
+
 
 
 slider.addEventListener("click", () => {
     slider.classList.toggle("lass");
-    // let coolGray = "hsl(231, 11%, 63%)";
-    // let marineBlue = "hsl(213, 96%, 18%)"
 
     if (slider.classList.contains("lass")) {
         arcadeYear();
@@ -294,10 +307,6 @@ slider.addEventListener("click", () => {
         description[0].removeChild(arcadeYearlyPrice);
         description[1].removeChild(advancedYearlyPrice);
         description[2].removeChild(proYearlyPrice);
-        
-        // description[1].appendChild(advancedMonthlyPrice);
-        // description[2].appendChild(proMonthlyPrice);
-        
     }
 })
 
@@ -311,7 +320,7 @@ next[1].addEventListener("click", () => {
     stepThree();
 })
 
-
+// *********************************************
 
 
 // add-ons

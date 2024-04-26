@@ -223,14 +223,6 @@ input:focus {
     color: var(--marine-blue);
 }
 
-.month {
-    display: block;
-}
-
-/* .year {
-    display: block;
-} */
-
 .choice {
     margin-top: 30px;
     width: 100%;
