@@ -17,6 +17,9 @@ const checkBox = document.querySelectorAll(".checkbox");
 const month = document.querySelector(".mo");
 const year = document.querySelector(".ye");
 
+let coolGray = "hsl(231, 11%, 63%)";
+let marineBlue = "hsl(213, 96%, 18%)"
+
 
 // function execution when page loads
 function setUpInfo() {
@@ -46,7 +49,7 @@ stepTwo = () => {
     add_ons.style.display = "none";
     plans.style.display = "block";
     finish.style.display = "none";
-    selectPlans[0].classList.add("active");
+    // selectPlans[0].classList.add("active");
 }
 
 stepThree = () => {
@@ -77,6 +80,9 @@ btns[0].addEventListener("click", () => {
 
 btns[1].addEventListener("click", () => {
     stepTwo();
+    selectPlans[0].classList.add("active");
+    month.style.color = "hsl(213, 96%, 18%)";
+    arcadeMonth();
 })
 
 btns[2].addEventListener("click", () => {
@@ -167,6 +173,9 @@ next[0].addEventListener("click", (e) => {
     emailIsValid();
     numIsValid();
     allInputIsValid();
+    stepTwo();
+    selectPlans[0].classList.add("active");
+    arcadeMonth();
 })
 
 // plans
@@ -189,6 +198,109 @@ for (let i = 0; i < selectPlans.length; i++) {
     })
 }
 
+// toggle button functionality
+const slider = document.querySelector(".slider");
+const description = document.querySelectorAll(".desc");
+
+
+// monthly price plans
+const arcadeMonthlyPrice = document.createElement("h4");
+arcadeMonthlyPrice.setAttribute("class", "h4");
+arcadeMonthlyPrice.innerHTML = `
+    <h4 class="month">$9/mo</h4>
+`
+
+const advancedMonthlyPrice = document.createElement("h4");
+advancedMonthlyPrice.setAttribute("class", "h4");
+advancedMonthlyPrice.innerHTML = `
+    <h4 class="month">$12/mo</h4>
+`
+
+const proMonthlyPrice = document.createElement("h4");
+proMonthlyPrice.setAttribute("class", "h4");
+proMonthlyPrice.innerHTML = `
+    <h4 class="month">$15/mo</h4>
+`
+
+// yearly price plans
+// const freeTime = document.createElement("p");
+// freeTime.setAttribute("class", "p");
+// freeTime.innerHTML = `
+//     <p class="year">2 months free</p>
+// `
+
+const arcadeYearlyPrice = document.createElement("div");
+arcadeYearlyPrice.setAttribute("class", "year");
+arcadeYearlyPrice.innerHTML = `
+    <div class="year">
+        <h4>$90/yr</h4>
+        <p>2 months free</p>
+    </div>
+`
+
+const advancedYearlyPrice = document.createElement("div");
+advancedYearlyPrice.setAttribute("class", "year");
+advancedYearlyPrice.innerHTML = `
+    <div class="year">
+        <h4>$120/yr</h4>
+        <p>2 months free</p>
+    </div>
+`
+
+const proYearlyPrice = document.createElement("div");
+proYearlyPrice.setAttribute("class", "year");
+proYearlyPrice.innerHTML = `
+    <div class="year">
+        <h4>$150/yr</h4>
+        <p>2 months free</p>
+    </div>
+`
+
+// arcadeYearlyPrice.appendChild(freeTime);
+
+arcadeYear = () => {
+        console.log("yes");
+        year.style.color = marineBlue;
+        month.style.color = coolGray;
+        description[0].appendChild(arcadeYearlyPrice);
+        description[1].appendChild(advancedYearlyPrice);
+        description[2].appendChild(proYearlyPrice);
+        description[0].removeChild(arcadeMonthlyPrice);
+        description[1].removeChild(advancedMonthlyPrice);
+        description[2].removeChild(proMonthlyPrice);
+}
+
+arcadeMonth = () => {
+        console.log("no");
+        month.style.color = marineBlue;
+        year.style.color = coolGray;
+        description[0].appendChild(arcadeMonthlyPrice);
+        description[1].appendChild(advancedMonthlyPrice);
+        description[2].appendChild(proMonthlyPrice);
+}
+
+
+
+slider.addEventListener("click", () => {
+    slider.classList.toggle("lass");
+    // let coolGray = "hsl(231, 11%, 63%)";
+    // let marineBlue = "hsl(213, 96%, 18%)"
+
+    if (slider.classList.contains("lass")) {
+        arcadeYear();
+        
+    } else {
+        arcadeMonth();
+        description[0].removeChild(arcadeYearlyPrice);
+        description[1].removeChild(advancedYearlyPrice);
+        description[2].removeChild(proYearlyPrice);
+        
+        // description[1].appendChild(advancedMonthlyPrice);
+        // description[2].appendChild(proMonthlyPrice);
+        
+    }
+})
+
 // plans next step and go back buttons functionality
 
 back[0].addEventListener("click", () => {
@@ -199,63 +311,20 @@ next[1].addEventListener("click", () => {
     stepThree();
 })
 
-// toggle button functionality
-const slider = document.querySelector(".slider");
-const yearlyValues = document.querySelectorAll(".year");
-const monthlyValues = document.querySelectorAll(".month");
-const yearly = document.getElementById("yearly");
-const months = document.getElementById("month");
-console.log(monthlyValues);
 
-let currency = "$";
-let monthlyTimeFrame = "/mo";
-let yearlyTimeFrame = "/yr";
-let firstmonthlyAmount = 9;
-let secondmonthlyAmount = 12;
-let thirdmonthlyAmount = 15;
-let firstyearlyAmount = 90;
-let secondyearlyAmount = 120;
-let thirdyearlyAmount = 150;
-
-yearlyValue = () => {
-    yearly.style.display = "block";
-    months.style.display = "none";
-    yearlyValues[0].innerHTML = currency + firstyearlyAmount + yearlyTimeFrame;
-    yearlyValues[1].innerHTML = currency + secondyearlyAmount + yearlyTimeFrame;
-    yearlyValues[2].innerHTML = currency + thirdyearlyAmount + yearlyTimeFrame;
-    
-};
-
-monthlyValue = () => {
-    months.style.display = "block";
-    yearly.style.display = "none";
-    monthlyValues[0].innerHTML = currency + firstmonthlyAmount + monthlyTimeFrame;
-    monthlyValues[1].innerHTML = currency + secondmonthlyAmount + monthlyTimeFrame;
-    monthlyValues[2].innerHTML = currency + thirdmonthlyAmount + monthlyTimeFrame;
-};
-
-slider.addEventListener("click", () => {
-    slider.classList.toggle("lass");
-
-    if (slider.classList.contains("lass")) {
-        console.log("yes");
-        year.style.color = "hsl(213, 96%, 18%)";
-        month.style.color = "hsl(231, 11%, 63%)";
-        yearlyValue();
-        // monthlyValue();
-    } else {
-        console.log("no");
-        month.style.color = "hsl(213, 96%, 18%)";
-        year.style.color = "hsl(231, 11%, 63%)";
-        // monthlyValue();
-    }
-})
 
 
 // add-ons
 
 back[1].addEventListener("click", () => {
-    stepTwo();
+    btns[0].classList.remove("btn_active");
+    btns[1].classList.add("btn_active");
+    btns[2].classList.remove("btn_active");
+    btns[3].classList.remove("btn_active");
+    info.style.display = "none";
+    add_ons.style.display = "none";
+    plans.style.display = "block";
+    finish.style.display = "none";
 })
 
 next[2].addEventListener("click", () => {

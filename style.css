@@ -216,20 +216,20 @@ input:focus {
     font-size: 14px;
     font-weight: 400;
     color: var(--cool-gray);
-    padding-bottom: 5px;
+    /* padding-bottom: 5px; */
 }
 
 .plan p {
     color: var(--marine-blue);
 }
 
-#month {
+.month {
     display: block;
 }
 
-#yearly {
-    display: none;
-}
+/* .year {
+    display: block;
+} */
 
 .choice {
     margin-top: 30px;
