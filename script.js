@@ -248,20 +248,20 @@ proYearlyPrice.innerHTML = `
     </div>
 `
 
-/*
+
 // converting values in plans to usable data type (number)
-console.log(proYearlyPrice.textContent.trim());
-let kiss = proYearlyPrice.textContent.trim();
-kissed = Array.from(kiss);
-const [ one, two, three, four, five, six, ...otherData ] = kissed;
-console.log(kissed);
-console.log(two, three, four);
-let figure = two + three + four;
-let nums = Number(figure);
-console.log(nums);
+// console.log(proYearlyPrice.textContent.trim());
+// let kiss = proYearlyPrice.textContent.trim();
+// kissed = Array.from(kiss);
+// const [ one, two, three, four, five, six, ...otherData ] = kissed;
+// console.log(kissed);
+// console.log(two, three, four);
+// let figure = two + three + four;
+// let nums = Number(figure);
+// console.log(nums);
 
 // still to do is taking care of default value of the slider
-*/ 
+
 
 
 
@@ -324,6 +324,16 @@ next[1].addEventListener("click", () => {
 
 
 // add-ons
+
+const packages = document.querySelectorAll(".packages");
+console.log(packages[0].children[2].textContent);
+
+let pak1 = packages[0].children[2].textContent;
+pack1 = Array.from(pak1);
+console.log(pack1);
+const[ plus, currency, amount, ...otherData ] = pack1;
+money = Number(amount);
+console.log(money);
 
 back[1].addEventListener("click", () => {
     btns[0].classList.remove("btn_active");
