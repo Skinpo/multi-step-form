@@ -399,7 +399,7 @@ input:checked + .slider:before {
     padding-top: 20px;
 }
 
-.arcade, .arcade_3, .total {
+.arcade, .total {
     display: flex;
     justify-content: space-between;
 }

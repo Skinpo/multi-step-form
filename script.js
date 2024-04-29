@@ -326,14 +326,20 @@ next[1].addEventListener("click", () => {
 // add-ons
 
 const packages = document.querySelectorAll(".packages");
-console.log(packages[0].children[2].textContent);
+// console.log(packages[0].children[2].textContent);
+console.log(packages[1].children[0].checked);
 
-let pak1 = packages[0].children[2].textContent;
-pack1 = Array.from(pak1);
-console.log(pack1);
-const[ plus, currency, amount, ...otherData ] = pack1;
-money = Number(amount);
-console.log(money);
+for (let i = 0; i < packages.length; i++) {
+    const element = packages[i];
+    console.log(element.children[0]);
+}
+
+// let pak1 = packages[0].children[2].textContent;
+// pack1 = Array.from(pak1);
+// console.log(pack1);
+// const[ plus, currency, amount, ...otherData ] = pack1;
+// money = Number(amount);
+// console.log(money);
 
 back[1].addEventListener("click", () => {
     btns[0].classList.remove("btn_active");
