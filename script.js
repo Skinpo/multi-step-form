@@ -301,7 +301,6 @@ slider.addEventListener("click", () => {
 
     if (slider.classList.contains("lass")) {
         arcadeYear();
-        
     } else {
         arcadeMonth();
         description[0].removeChild(arcadeYearlyPrice);
