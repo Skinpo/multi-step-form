@@ -71,24 +71,24 @@ stepFour = () => {
     finish.style.display = "block";
 }
 
-btns[0].addEventListener("click", () => {
-    stepOne();
-})
+// btns[0].addEventListener("click", () => {
+//     stepOne();
+// })
 
-btns[1].addEventListener("click", () => {
-    stepTwo();
-    selectPlans[0].classList.add("active");
-    month.style.color = "hsl(213, 96%, 18%)";
-    arcadeMonth();
-})
+// btns[1].addEventListener("click", () => {
+//     stepTwo();
+//     selectPlans[0].classList.add("active");
+//     month.style.color = "hsl(213, 96%, 18%)";
+//     arcadeMonth();
+// })
 
 btns[2].addEventListener("click", () => {
     stepThree();
 })
 
-btns[3].addEventListener("click", () => {
-    stepFour();
-})
+// btns[3].addEventListener("click", () => {
+//     stepFour();
+// })
 
 // functions for when user is filling input fields
 fullName.addEventListener("keyup", () => {
@@ -249,6 +249,7 @@ proYearlyPrice.innerHTML = `
 `
 
 
+
 // converting values in plans to usable data type (number)
 // console.log(proYearlyPrice.textContent.trim());
 // let kiss = proYearlyPrice.textContent.trim();
@@ -309,6 +310,8 @@ slider.addEventListener("click", () => {
     }
 })
 
+// dynamically add value of chosen package to summary
+
 // plans next step and go back buttons functionality
 
 back[0].addEventListener("click", () => {
@@ -326,11 +329,14 @@ next[1].addEventListener("click", () => {
 
 const packages = document.querySelectorAll(".packages");
 // console.log(packages[0].children[2].textContent);
-console.log(packages[1].children[0].checked);
+// console.log(packages[0]);
 
 for (let i = 0; i < packages.length; i++) {
     const element = packages[i];
-    console.log(element.children[0]);
+    // console.log(element);
+    element.children[0].addEventListener("click", () => {
+        element.classList.toggle("active_2");
+    })
 }
 
 // let pak1 = packages[0].children[2].textContent;
@@ -354,6 +360,8 @@ back[1].addEventListener("click", () => {
 next[2].addEventListener("click", () => {
     stepFour();
 })
+
+// dynamically add value of chosen input/inputs to summary
 
 // Finishing up
 
