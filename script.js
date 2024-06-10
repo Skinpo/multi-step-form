@@ -18,7 +18,9 @@ const month = document.querySelector(".mo");
 const year = document.querySelector(".ye");
 
 let coolGray = "hsl(231, 11%, 63%)";
-let marineBlue = "hsl(213, 96%, 18%)"
+let marineBlue = "hsl(213, 96%, 18%)";
+
+let summaryInfo = [];
 
 
 // function execution when page loads
@@ -75,20 +77,20 @@ stepFour = () => {
 //     stepOne();
 // })
 
-// btns[1].addEventListener("click", () => {
-//     stepTwo();
-//     selectPlans[0].classList.add("active");
-//     month.style.color = "hsl(213, 96%, 18%)";
-//     arcadeMonth();
-// })
+btns[1].addEventListener("click", () => {
+    stepTwo();
+    selectPlans[0].classList.add("active");
+    month.style.color = "hsl(213, 96%, 18%)";
+    arcadeMonth();
+})
 
 btns[2].addEventListener("click", () => {
     stepThree();
 })
 
-// btns[3].addEventListener("click", () => {
-//     stepFour();
-// })
+btns[3].addEventListener("click", () => {
+    stepFour();
+})
 
 // functions for when user is filling input fields
 fullName.addEventListener("keyup", () => {
@@ -172,100 +174,54 @@ next[0].addEventListener("click", (e) => {
     emailIsValid();
     numIsValid();
     allInputIsValid();
-    
+    addOnMonthlyPrices();
 })
 
 // ***************************************************
 
 // plans
-// choosing plans
-for (let i = 0; i < selectPlans.length; i++) {
-    selectPlans[i].addEventListener("click", () => {
-        if (selectPlans[i] === selectPlans[0]) {
-            selectPlans[0].classList.add("active");
-            selectPlans[1].classList.remove("active");
-            selectPlans[2].classList.remove("active");
-        }else if(selectPlans[i] === selectPlans[1]) {
-            selectPlans[0].classList.remove("active");
-            selectPlans[1].classList.add("active");
-            selectPlans[2].classList.remove("active");
-        }else if(selectPlans[i] === selectPlans[2]) {
-            selectPlans[0].classList.remove("active");
-            selectPlans[1].classList.remove("active");
-            selectPlans[2].classList.add("active");
-        }
-    })
-}
-
-// toggle button functionality
-const slider = document.querySelector(".slider");
-const description = document.querySelectorAll(".desc");
-
-
-// monthly price plans
-const arcadeMonthlyPrice = document.createElement("h4");
-arcadeMonthlyPrice.setAttribute("class", "h4");
+// monthly price plans to be dynamically injected
+const arcadeMonthlyPrice = document.createElement("div");
+arcadeMonthlyPrice.setAttribute("class", "month");
 arcadeMonthlyPrice.innerHTML = `
-    <h4 class="month">$9/mo</h4>
+    <h4>$9/mo</h4>
 `
 
-const advancedMonthlyPrice = document.createElement("h4");
-advancedMonthlyPrice.setAttribute("class", "h4");
+const advancedMonthlyPrice = document.createElement("div");
+advancedMonthlyPrice.setAttribute("class", "month");
 advancedMonthlyPrice.innerHTML = `
-    <h4 class="month">$12/mo</h4>
+    <h4>$12/mo</h4>
 `
 
-const proMonthlyPrice = document.createElement("h4");
-proMonthlyPrice.setAttribute("class", "h4");
+const proMonthlyPrice = document.createElement("div");
+proMonthlyPrice.setAttribute("class", "month");
 proMonthlyPrice.innerHTML = `
-    <h4 class="month">$15/mo</h4>
+    <h4>$15/mo</h4>
 `
 
+// yearly price plans to be dynamically injected
 const arcadeYearlyPrice = document.createElement("div");
 arcadeYearlyPrice.setAttribute("class", "year");
 arcadeYearlyPrice.innerHTML = `
-    <div class="year">
-        <h4>$90/yr</h4>
-        <p>2 months free</p>
-    </div>
+    <h4>$90/yr</h4>
+    <p>2 months free</p>
 `
 
 const advancedYearlyPrice = document.createElement("div");
 advancedYearlyPrice.setAttribute("class", "year");
 advancedYearlyPrice.innerHTML = `
-    <div class="year">
-        <h4>$120/yr</h4>
-        <p>2 months free</p>
-    </div>
+    <h4>$120/yr</h4>
+    <p>2 months free</p>
 `
 
 const proYearlyPrice = document.createElement("div");
 proYearlyPrice.setAttribute("class", "year");
 proYearlyPrice.innerHTML = `
-    <div class="year">
-        <h4>$150/yr</h4>
-        <p>2 months free</p>
-    </div>
+    <h4>$150/yr</h4>
+    <p>2 months free</p>
 `
 
-
-
-// converting values in plans to usable data type (number)
-// console.log(proYearlyPrice.textContent.trim());
-// let kiss = proYearlyPrice.textContent.trim();
-// kissed = Array.from(kiss);
-// const [ one, two, three, four, five, six, ...otherData ] = kissed;
-// console.log(kissed);
-// console.log(two, three, four);
-// let figure = two + three + four;
-// let nums = Number(figure);
-// console.log(nums);
-
-// still to do is taking care of default value of the slider
-
-
-
-
+// function that injects yearly prices for plan choice
 arcadeYear = () => {
         year.style.color = marineBlue;
         month.style.color = coolGray;
@@ -277,6 +233,7 @@ arcadeYear = () => {
         description[2].removeChild(proMonthlyPrice);
 }
 
+// function that injects monthly prices for plan choice
 arcadeMonth = () => {
         month.style.color = marineBlue;
         year.style.color = coolGray;
@@ -290,25 +247,61 @@ const reset = () => {
     selectPlans[1].classList.remove("active");
     selectPlans[2].classList.remove("active");
     arcadeMonth();
-    description[0].removeChild(arcadeYearlyPrice);
-    description[1].removeChild(advancedYearlyPrice);
-    description[2].removeChild(proYearlyPrice);
+    // description[0].removeChild(arcadeYearlyPrice);
+    // description[1].removeChild(advancedYearlyPrice);
+    // description[2].removeChild(proYearlyPrice);
 }
 
-
+// toggle button functionality
+const slider = document.querySelector(".slider");
+const description = document.querySelectorAll(".desc");
+// const package = document.querySelectorAll(".package");
 
 slider.addEventListener("click", () => {
     slider.classList.toggle("lass");
 
     if (slider.classList.contains("lass")) {
         arcadeYear();
+        // resetAgain();
+        addOnYearlyPrices();
+        packages[0].removeChild(addOnMonthlyOptionOne);
+        packages[1].removeChild(addOnMonthlyOptionTwo);
+        packages[2].removeChild(addOnMonthlyOptionThree);
     } else {
         arcadeMonth();
         description[0].removeChild(arcadeYearlyPrice);
         description[1].removeChild(advancedYearlyPrice);
         description[2].removeChild(proYearlyPrice);
+        addOnMonthlyPrices();
+        packages[0].removeChild(addOnYearlyOptionOne);
+        packages[1].removeChild(addOnYearlyOptionTwo);
+        packages[2].removeChild(addOnYearlyOptionThree);
     }
 })
+
+// choosing plans
+for (let i = 0; i < selectPlans.length; i++) {
+    let activePlan = selectPlans[i];
+    activePlan.addEventListener("click", () => {
+        if (selectPlans[i] === selectPlans[0]) {
+            selectPlans[0].classList.add("active");
+            selectPlans[1].classList.remove("active");
+            selectPlans[2].classList.remove("active");
+            // console.log(selectPlans[0].children[1].children[1]);
+        }else if(selectPlans[i] === selectPlans[1]) {
+            selectPlans[0].classList.remove("active");
+            selectPlans[1].classList.add("active");
+            selectPlans[2].classList.remove("active")
+            // console.log(selectPlans[1].children[1].children[0].innerHTML);
+        }else if(selectPlans[i] === selectPlans[2]) {
+            selectPlans[0].classList.remove("active");
+            selectPlans[1].classList.remove("active");
+            selectPlans[2].classList.add("active");
+        }
+    })
+}
+
+
 
 // dynamically add value of chosen package to summary
 
@@ -316,10 +309,22 @@ slider.addEventListener("click", () => {
 
 back[0].addEventListener("click", () => {
     stepOne();
+    
 })
 
 next[1].addEventListener("click", () => {
     stepThree();
+    // console.log(selectPlans);
+   for (let i = 0; i < selectPlans.length; i++) {
+    const activeSelect = selectPlans[i];
+    if (activeSelect.classList.contains("active")) {
+        console.log(activeSelect.children[1].children[0].innerHTML);
+        console.log(activeSelect.children[1].children[1].children[0].innerHTML);
+    }
+    ;
+   }
+
+    
 })
 
 // *********************************************
@@ -331,20 +336,68 @@ const packages = document.querySelectorAll(".packages");
 // console.log(packages[0].children[2].textContent);
 // console.log(packages[0]);
 
-for (let i = 0; i < packages.length; i++) {
-    const element = packages[i];
-    // console.log(element);
-    element.children[0].addEventListener("click", () => {
-        element.classList.toggle("active_2");
-    })
+// for (let i = 0; i < packages.length; i++) {
+//     const element = packages[i];
+//     // console.log(element);
+//     element.children[0].addEventListener("click", () => {
+//         element.classList.toggle("active_2");
+//         console.log(element.children[1].children[0].innerHTML);
+//         console.log(element.children[2].children[0].innerHTML);
+//         // console.log(element);
+//     })
+// }
+
+// add on prices to be dynamically injected upon slider choice
+// yearly prices
+const addOnYearlyOptionOne = document.createElement("div");
+addOnYearlyOptionOne.setAttribute("class", "yearly");
+addOnYearlyOptionOne.innerHTML = `
+    <p class="price">+$10/yr</p>
+`
+
+const addOnYearlyOptionTwo = document.createElement("div");
+addOnYearlyOptionTwo.setAttribute("class", "yearly");
+addOnYearlyOptionTwo.innerHTML = `
+    <p class="price">+$20/yr</p>
+`
+
+const addOnYearlyOptionThree = document.createElement("div");
+addOnYearlyOptionThree.setAttribute("class", "yearly");
+addOnYearlyOptionThree.innerHTML = `
+    <p class="price">+$20/yr</p>
+`
+
+// monthly prices 
+const addOnMonthlyOptionOne = document.createElement("div");
+addOnMonthlyOptionOne.setAttribute("class", "monthly");
+addOnMonthlyOptionOne.innerHTML = `
+    <p class="price">+$1/mo</p>
+`
+
+const addOnMonthlyOptionTwo = document.createElement("div");
+addOnMonthlyOptionTwo.setAttribute("class", "monthly");
+addOnMonthlyOptionTwo.innerHTML = `
+    <p class="price">+$2/mo</p>
+`
+
+const addOnMonthlyOptionThree = document.createElement("div");
+addOnMonthlyOptionThree.setAttribute("class", "monthly");
+addOnMonthlyOptionThree.innerHTML = `
+    <p class="price">+$2/mo</p>
+`
+
+// function that injects prices in add on depending on what is chosen in slider
+addOnMonthlyPrices = () => {
+    packages[0].appendChild(addOnMonthlyOptionOne);
+    packages[1].appendChild(addOnMonthlyOptionTwo);
+    packages[2].appendChild(addOnMonthlyOptionThree);
 }
 
-// let pak1 = packages[0].children[2].textContent;
-// pack1 = Array.from(pak1);
-// console.log(pack1);
-// const[ plus, currency, amount, ...otherData ] = pack1;
-// money = Number(amount);
-// console.log(money);
+addOnYearlyPrices = () => {
+    packages[0].appendChild(addOnYearlyOptionOne);
+    packages[1].appendChild(addOnYearlyOptionTwo);
+    packages[2].appendChild(addOnYearlyOptionThree);
+}
 
 back[1].addEventListener("click", () => {
     btns[0].classList.remove("btn_active");
@@ -358,7 +411,21 @@ back[1].addEventListener("click", () => {
 })
 
 next[2].addEventListener("click", () => {
+    for (let i = 0; i < packages.length; i++) {
+        const element = packages[i];
+        // console.log(element);
+        element.children[0].addEventListener("click", () => {
+            element.classList.toggle("active_2");
+        })
+
+        if (element.classList.contains("active_2")) {
+            console.log(element.children[1].children[0].innerHTML);
+            console.log(element.children[2].children[0].innerHTML);
+        }
+    }    
+
     stepFour();
+    
 })
 
 // dynamically add value of chosen input/inputs to summary
@@ -369,3 +436,28 @@ back[2].addEventListener("click", () => {
     stepThree();
 })
 
+
+
+
+
+// ***************************************************
+
+// converting values in plans to usable data type (number)
+// console.log(proYearlyPrice.textContent.trim());
+// let kiss = proYearlyPrice.textContent.trim();
+// kissed = Array.from(kiss);
+// const [ one, two, three, four, five, six, ...otherData ] = kissed;
+// console.log(kissed);
+// console.log(two, three, four);
+// let figure = two + three + four;
+// let nums = Number(figure);
+// console.log(nums);
+
+// let pak1 = packages[0].children[2].textContent;
+// pack1 = Array.from(pak1);
+// console.log(pack1);
+// const[ plus, currency, amount, ...otherData ] = pack1;
+// money = Number(amount);
+// console.log(money);
+
+// still to do is taking care of default value of the slider
