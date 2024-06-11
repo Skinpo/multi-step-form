@@ -336,16 +336,16 @@ const packages = document.querySelectorAll(".packages");
 // console.log(packages[0].children[2].textContent);
 // console.log(packages[0]);
 
-// for (let i = 0; i < packages.length; i++) {
-//     const element = packages[i];
-//     // console.log(element);
-//     element.children[0].addEventListener("click", () => {
-//         element.classList.toggle("active_2");
-//         console.log(element.children[1].children[0].innerHTML);
-//         console.log(element.children[2].children[0].innerHTML);
-//         // console.log(element);
-//     })
-// }
+for (let i = 0; i < packages.length; i++) {
+    const element = packages[i];
+    // console.log(element);
+    element.children[0].addEventListener("click", () => {
+        element.classList.toggle("active_2");
+        // console.log(element.children[1].children[0].innerHTML);
+        // console.log(element.children[2].children[0].innerHTML);
+        // console.log(element);
+    })
+}
 
 // add on prices to be dynamically injected upon slider choice
 // yearly prices
@@ -398,6 +398,21 @@ addOnYearlyPrices = () => {
     packages[1].appendChild(addOnYearlyOptionTwo);
     packages[2].appendChild(addOnYearlyOptionThree);
 }
+
+// changing choice
+const change = document.querySelector(".change");
+change.addEventListener("click", () => {
+    stepTwo();
+    // empty the array
+    for (let i = 0; i < packages.length; i++) {
+        const element = packages[i];
+        // console.log(element);
+        element.children[0].addEventListener("click", () => {
+            element.classList.toggle("active_2");
+        })
+    } 
+})
+
 
 back[1].addEventListener("click", () => {
     btns[0].classList.remove("btn_active");
